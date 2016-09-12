@@ -15,7 +15,7 @@ module.exports = function(grunt) {
 
     grunt.verbose.writeflags(config, "Options");
 
-    var files = grunt.file.expandFiles(config.src);
+    var files = grunt.file.expand(config.src);
 
     var output = helpers.requireTree(files, config);
 
