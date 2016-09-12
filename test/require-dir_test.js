@@ -20,6 +20,8 @@ var grunt = require('grunt');
     test.ifError(value)
 */
 
+/*global require:true */
+
 var helpers = require('../tasks/helpers');
 
 exports['require-dir'] = {
@@ -43,7 +45,7 @@ exports['require-dir'] = {
         'one.tmpl' : 'A/one.tmpl',
         'two.tmpl' : 'A/two.tmpl'
       }
-    }
+    };
     var actual = helpers.directoryTree(files, baseDir);
     test.deepEqual(actual, expected, 'Creates tree output');
     test.done();
@@ -62,8 +64,8 @@ exports['require-dir'] = {
       'test/fixtures/texttree/A/two.tmpl',
     ];
     var oldRequire = require;
-    var require = function(string) {return string};
-    var define = function(fn) {return fn(require)};
+    require = function(string) {return string;};
+    var define = function(fn) {return fn(require);};
     var expected = define(function(require){
         return {
           'bar' : require('tpl!customDir/bar.tmpl'),
@@ -72,10 +74,13 @@ exports['require-dir'] = {
             'one' : require('tpl!customDir/A/one.tmpl'),
             'two' : require('tpl!customDir/A/two.tmpl')
           }
-        }
+        };
       });
     var actualSource = helpers.requireTree(files, options);
-    var actual = eval(actualSource);
+    var actual;
+    /* jshint ignore:start */
+    actual = eval(actualSource);
+    /* jshint ignore:end */
     test.deepEqual(actual, expected, 'Creates correct response');
     test.done();
     require = oldRequire;
