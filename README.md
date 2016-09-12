@@ -2,7 +2,7 @@
 
 Task to build a requirejs AMD module out of a directory of files.
 
-[![Build Status](https://secure.travis-ci.org/jsoverson/grunt-require-dir.png)](http://travis-ci.org/jsoverson/grunt-require-dir)
+[![Build Status](https://travis-ci.org/psychobolt/grunt-require-dir.svg?branch=master)](https://travis-ci.org/psychobolt/grunt-require-dir)(http://travis-ci.org/jsoverson/grunt-require-dir)
 
 ## Getting Started
 Install this grunt plugin next to your project's grunt.js gruntfile with: `npm install grunt-require-dir`
