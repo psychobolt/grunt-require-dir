@@ -20,8 +20,6 @@ var grunt = require('grunt');
     test.ifError(value)
 */
 
-/*global require:true */
-
 var helpers = require('../tasks/helpers');
 
 exports['require-dir'] = {
@@ -83,6 +81,8 @@ exports['require-dir'] = {
     /* jshint ignore:end */
     test.deepEqual(actual, expected, 'Creates correct response');
     test.done();
+    /* jshint ignore:start */
     require = oldRequire;
+    /* jshint ignore:end */
   }
 };

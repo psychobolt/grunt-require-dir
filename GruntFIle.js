@@ -19,7 +19,6 @@ module.exports = function(grunt) {
       }
     },
     jshint: {
-      files: ['grunt.js', 'tasks/**/*.js', 'test/**/*.js'],
       options: {
         curly: true,
         eqeqeq: true,
@@ -32,9 +31,12 @@ module.exports = function(grunt) {
         boss: true,
         eqnull: true,
         node: true,
-        es5: true
+        globals: {
+          require: true
+        },
+        reporterOutput: ""
       },
-      globals: {}
+      files: ['grunt.js', 'tasks/**/*.js', 'test/**/*.js']
     }
   });
 
